@@ -1,0 +1,2108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_c75591b1674f6ddd6035e37a607f2d12 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_c75591b1674f6ddd6035e37a607f2d12" ></div>
+        
+    
+<div style="
+position: fixed;
+top: 10px;
+left: 50%;
+transform: translateX(-50%);
+z-index: 9999;
+background-color: white;
+padding: 8px 15px;
+border: 2px solid grey;
+border-radius: 6px;
+font-size: 16px;
+font-weight: bold;
+">
+Bridge Inventory Priority Map
+</div>
+    
+<div style="
+position: fixed;
+bottom: 50px;
+left: 50px;
+z-index: 9999;
+background-color: white;
+padding: 10px;
+border: 2px solid grey;
+border-radius: 6px;
+font-size: 14px;
+">
+
+<b>Bridge Priority</b><br>
+
+<i style="color:red;">●</i> Highest Risk<br>
+<i style="color:orange;">●</i> High Risk<br>
+<i style="color:yellow;">●</i> Medium Risk<br>
+<i style="color:lightgreen;">●</i> Low Risk<br>
+<i style="color:darkgreen;">●</i> Replaced <br>
+<i style="color:blue;">●</i> Removed <br>
+
+</div>
+</body>
+<script>
+    
+    
+            var map_c75591b1674f6ddd6035e37a607f2d12 = L.map(
+                "map_c75591b1674f6ddd6035e37a607f2d12",
+                {
+                    center: [45.97150595, -68.6690822],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 12,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_4c510e8106da2a5c13845ddf2a64a6e3 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_4c510e8106da2a5c13845ddf2a64a6e3.addTo(map_c75591b1674f6ddd6035e37a607f2d12);
+        
+    
+            var circle_marker_b3f9c0fa6f136910a9380f14e693fab9 = L.circleMarker(
+                [45.865684, -68.522615],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_c75591b1674f6ddd6035e37a607f2d12);
+        
+    
+        var popup_8957c2e3ef181c7232cb0bc92bf9d33c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_bc78ff63fc08488f8258e4de82882a96 = $(`<div id="html_bc78ff63fc08488f8258e4de82882a96" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> South Bridge 1 <br>     <b>ID#:</b> 7566<br>     <b>Priority:</b> B<br>     <b>Latitude:</b> 45.865684<br>     <b>Longitude:</b> -68.522615     </div>`)[0];
+                popup_8957c2e3ef181c7232cb0bc92bf9d33c.setContent(html_bc78ff63fc08488f8258e4de82882a96);
+            
+        
+
+        circle_marker_b3f9c0fa6f136910a9380f14e693fab9.bindPopup(popup_8957c2e3ef181c7232cb0bc92bf9d33c)
+        ;
+
+        
+    
+    
+            var circle_marker_b91fee6a79e6412d1cf725e6de622a34 = L.circleMarker(
+                [45.8804, -68.56931],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_c75591b1674f6ddd6035e37a607f2d12);
+        
+    
+        var popup_2c2069ed32ab70894200ba92206f7327 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b5085999fad2b5d472ba665fcbeae8a8 = $(`<div id="html_b5085999fad2b5d472ba665fcbeae8a8" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> South Bridge 2 <br>     <b>ID#:</b> 7981<br>     <b>Priority:</b> C<br>     <b>Latitude:</b> 45.8804<br>     <b>Longitude:</b> -68.56931     </div>`)[0];
+                popup_2c2069ed32ab70894200ba92206f7327.setContent(html_b5085999fad2b5d472ba665fcbeae8a8);
+            
+        
+
+        circle_marker_b91fee6a79e6412d1cf725e6de622a34.bindPopup(popup_2c2069ed32ab70894200ba92206f7327)
+        ;
+
+        
+    
+    
+            var circle_marker_f70480a9911b4eaae7850bd62e796ebb = L.circleMarker(
+                [45.88048, -68.56475],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_c75591b1674f6ddd6035e37a607f2d12);
+        
+    
+        var popup_05007c82de38113937cf49199b7306d0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0f37a08f9e98a0a8450638ecf9cbce47 = $(`<div id="html_0f37a08f9e98a0a8450638ecf9cbce47" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> South Bridge 3<br>     <b>ID#:</b> 7494<br>     <b>Priority:</b> C<br>     <b>Latitude:</b> 45.88048<br>     <b>Longitude:</b> -68.56475     </div>`)[0];
+                popup_05007c82de38113937cf49199b7306d0.setContent(html_0f37a08f9e98a0a8450638ecf9cbce47);
+            
+        
+
+        circle_marker_f70480a9911b4eaae7850bd62e796ebb.bindPopup(popup_05007c82de38113937cf49199b7306d0)
+        ;
+
+        
+    
+    
+            var circle_marker_20c24ebf7dffee4ca641f5fdcd2b6c87 = L.circleMarker(
+                [45.8804, -68.56931],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_c75591b1674f6ddd6035e37a607f2d12);
+        
+    
+        var popup_ba48b4caf52647333d185a86794e0d19 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3071a080a8cb7f12f2803c51a3b067ef = $(`<div id="html_3071a080a8cb7f12f2803c51a3b067ef" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> South Bridge 4<br>     <b>ID#:</b> 7491<br>     <b>Priority:</b> C<br>     <b>Latitude:</b> 45.8804<br>     <b>Longitude:</b> -68.56931     </div>`)[0];
+                popup_ba48b4caf52647333d185a86794e0d19.setContent(html_3071a080a8cb7f12f2803c51a3b067ef);
+            
+        
+
+        circle_marker_20c24ebf7dffee4ca641f5fdcd2b6c87.bindPopup(popup_ba48b4caf52647333d185a86794e0d19)
+        ;
+
+        
+    
+    
+            var circle_marker_7963b5d78be24da1b890036b474ab442 = L.circleMarker(
+                [45.88022, -68.59032],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_c75591b1674f6ddd6035e37a607f2d12);
+        
+    
+        var popup_f30a72abffd38951454269dc76f3b12c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6ff6eef88e8438e6c85c9cb81d0e1809 = $(`<div id="html_6ff6eef88e8438e6c85c9cb81d0e1809" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> South Bridge 5<br>     <b>ID#:</b> 7452<br>     <b>Priority:</b> C<br>     <b>Latitude:</b> 45.88022<br>     <b>Longitude:</b> -68.59032     </div>`)[0];
+                popup_f30a72abffd38951454269dc76f3b12c.setContent(html_6ff6eef88e8438e6c85c9cb81d0e1809);
+            
+        
+
+        circle_marker_7963b5d78be24da1b890036b474ab442.bindPopup(popup_f30a72abffd38951454269dc76f3b12c)
+        ;
+
+        
+    
+    
+            var circle_marker_21952f959af1bef9e062dbe4e74d77e5 = L.circleMarker(
+                [45.861127, -68.623882],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_c75591b1674f6ddd6035e37a607f2d12);
+        
+    
+        var popup_b958d8c7829d9ed02796661ead7e7876 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7e6e4f45a201154e17b0bbfa4c015b5b = $(`<div id="html_7e6e4f45a201154e17b0bbfa4c015b5b" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> South Bridge 6<br>     <b>ID#:</b> <br>     <b>Priority:</b> B<br>     <b>Latitude:</b> 45.861127<br>     <b>Longitude:</b> -68.623882     </div>`)[0];
+                popup_b958d8c7829d9ed02796661ead7e7876.setContent(html_7e6e4f45a201154e17b0bbfa4c015b5b);
+            
+        
+
+        circle_marker_21952f959af1bef9e062dbe4e74d77e5.bindPopup(popup_b958d8c7829d9ed02796661ead7e7876)
+        ;
+
+        
+    
+    
+            var circle_marker_c4d340fdf46398f025f1b9432f34bb1e = L.circleMarker(
+                [45.863512, -68.629658],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_c75591b1674f6ddd6035e37a607f2d12);
+        
+    
+        var popup_7b198b0fb9b9adb99921262908656810 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ec0aa742fbd39047575f499a3227056f = $(`<div id="html_ec0aa742fbd39047575f499a3227056f" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> South Bridge 7<br>     <b>ID#:</b> 7392<br>     <b>Priority:</b> B<br>     <b>Latitude:</b> 45.863512<br>     <b>Longitude:</b> -68.629658     </div>`)[0];
+                popup_7b198b0fb9b9adb99921262908656810.setContent(html_ec0aa742fbd39047575f499a3227056f);
+            
+        
+
+        circle_marker_c4d340fdf46398f025f1b9432f34bb1e.bindPopup(popup_7b198b0fb9b9adb99921262908656810)
+        ;
+
+        
+    
+    
+            var circle_marker_7364d912afc74705dd93ec4e9532bbc4 = L.circleMarker(
+                [45.859346, -68.67413],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_c75591b1674f6ddd6035e37a607f2d12);
+        
+    
+        var popup_f90e6a9f896c7978160aa721f5619a90 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_076d5531270280f49da46d65ce8b7cf4 = $(`<div id="html_076d5531270280f49da46d65ce8b7cf4" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> South Bridge 8<br>     <b>ID#:</b> 7335<br>     <b>Priority:</b> C<br>     <b>Latitude:</b> 45.859346<br>     <b>Longitude:</b> -68.67413     </div>`)[0];
+                popup_f90e6a9f896c7978160aa721f5619a90.setContent(html_076d5531270280f49da46d65ce8b7cf4);
+            
+        
+
+        circle_marker_7364d912afc74705dd93ec4e9532bbc4.bindPopup(popup_f90e6a9f896c7978160aa721f5619a90)
+        ;
+
+        
+    
+    
+            var circle_marker_15a7900421b90d465375cbeba74f0fc0 = L.circleMarker(
+                [45.866488, -68.678615],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_c75591b1674f6ddd6035e37a607f2d12);
+        
+    
+        var popup_ee7aadac9da6e582b5189f91d2128629 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7ac7a69d9a8ecc3323c8cd51746090fb = $(`<div id="html_7ac7a69d9a8ecc3323c8cd51746090fb" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b>  South Bridge 9<br>     <b>ID#:</b> 7331<br>     <b>Priority:</b> B<br>     <b>Latitude:</b> 45.866488<br>     <b>Longitude:</b> -68.678615     </div>`)[0];
+                popup_ee7aadac9da6e582b5189f91d2128629.setContent(html_7ac7a69d9a8ecc3323c8cd51746090fb);
+            
+        
+
+        circle_marker_15a7900421b90d465375cbeba74f0fc0.bindPopup(popup_ee7aadac9da6e582b5189f91d2128629)
+        ;
+
+        
+    
+    
+            var circle_marker_281c6a4afee8b56ab67d394ea20aa20c = L.circleMarker(
+                [45.870615, -68.706375],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_c75591b1674f6ddd6035e37a607f2d12);
+        
+    
+        var popup_d2c1a0edea2101e6f199b8608863d454 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0e5823bb51a175f15f59cde4719cd675 = $(`<div id="html_0e5823bb51a175f15f59cde4719cd675" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> South Bridge 10<br>     <b>ID#:</b> 7296<br>     <b>Priority:</b> B<br>     <b>Latitude:</b> 45.870615<br>     <b>Longitude:</b> -68.706375     </div>`)[0];
+                popup_d2c1a0edea2101e6f199b8608863d454.setContent(html_0e5823bb51a175f15f59cde4719cd675);
+            
+        
+
+        circle_marker_281c6a4afee8b56ab67d394ea20aa20c.bindPopup(popup_d2c1a0edea2101e6f199b8608863d454)
+        ;
+
+        
+    
+    
+            var circle_marker_81d836af4ea591cd292039533b46fc4b = L.circleMarker(
+                [45.82935, -68.70163],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_c75591b1674f6ddd6035e37a607f2d12);
+        
+    
+        var popup_f143558b3ad0dcbd7c6b89402ae22049 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_91b7430a5d624f89065a967616aa985f = $(`<div id="html_91b7430a5d624f89065a967616aa985f" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> South Bridge 11<br>     <b>ID#:</b> 7542<br>     <b>Priority:</b> C<br>     <b>Latitude:</b> 45.82935<br>     <b>Longitude:</b> -68.70163     </div>`)[0];
+                popup_f143558b3ad0dcbd7c6b89402ae22049.setContent(html_91b7430a5d624f89065a967616aa985f);
+            
+        
+
+        circle_marker_81d836af4ea591cd292039533b46fc4b.bindPopup(popup_f143558b3ad0dcbd7c6b89402ae22049)
+        ;
+
+        
+    
+    
+            var circle_marker_57608a97dc31bcad833ab014f1130b76 = L.circleMarker(
+                [45.845041, -68.725615],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_c75591b1674f6ddd6035e37a607f2d12);
+        
+    
+        var popup_299a173b1c6423d694380a86f6b80abb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_00a9c19a35a33bac78418f3a6ca35945 = $(`<div id="html_00a9c19a35a33bac78418f3a6ca35945" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> South Bridge 12<br>     <b>ID#:</b> 7578<br>     <b>Priority:</b> C<br>     <b>Latitude:</b> 45.845041<br>     <b>Longitude:</b> -68.725615     </div>`)[0];
+                popup_299a173b1c6423d694380a86f6b80abb.setContent(html_00a9c19a35a33bac78418f3a6ca35945);
+            
+        
+
+        circle_marker_57608a97dc31bcad833ab014f1130b76.bindPopup(popup_299a173b1c6423d694380a86f6b80abb)
+        ;
+
+        
+    
+    
+            var circle_marker_d50419f31f62d6089aaaf43f0e29001d = L.circleMarker(
+                [45.919901, -68.762449],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_c75591b1674f6ddd6035e37a607f2d12);
+        
+    
+        var popup_41766a77c221e36976de658c8bab5d4a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f76d76690a8809a047f80d0801ec6ae8 = $(`<div id="html_f76d76690a8809a047f80d0801ec6ae8" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> South Bridge 13<br>     <b>ID#:</b> <br>     <b>Priority:</b> C<br>     <b>Latitude:</b> 45.919901<br>     <b>Longitude:</b> -68.762449     </div>`)[0];
+                popup_41766a77c221e36976de658c8bab5d4a.setContent(html_f76d76690a8809a047f80d0801ec6ae8);
+            
+        
+
+        circle_marker_d50419f31f62d6089aaaf43f0e29001d.bindPopup(popup_41766a77c221e36976de658c8bab5d4a)
+        ;
+
+        
+    
+    
+            var circle_marker_08d803cc76369e97ca7316fe3abe41e0 = L.circleMarker(
+                [45.890855, -68.710662],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_c75591b1674f6ddd6035e37a607f2d12);
+        
+    
+        var popup_c7892903e19f7838e9f6d3ed95ad5f96 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_734f5c62c8849d5ea06d02f77c9f9639 = $(`<div id="html_734f5c62c8849d5ea06d02f77c9f9639" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> South Bridge 14<br>     <b>ID#:</b> 7293<br>     <b>Priority:</b> C<br>     <b>Latitude:</b> 45.890855<br>     <b>Longitude:</b> -68.710662     </div>`)[0];
+                popup_c7892903e19f7838e9f6d3ed95ad5f96.setContent(html_734f5c62c8849d5ea06d02f77c9f9639);
+            
+        
+
+        circle_marker_08d803cc76369e97ca7316fe3abe41e0.bindPopup(popup_c7892903e19f7838e9f6d3ed95ad5f96)
+        ;
+
+        
+    
+    
+            var circle_marker_c08c2984abc79366c9d82a4093287d8c = L.circleMarker(
+                [45.932806, -68.714137],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_c75591b1674f6ddd6035e37a607f2d12);
+        
+    
+        var popup_a7175fceb034401b6334d90980fb276e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1260513de0632c6528bddfb0de7f89f4 = $(`<div id="html_1260513de0632c6528bddfb0de7f89f4" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> South Bridge 15<br>     <b>ID#:</b> 7289<br>     <b>Priority:</b> A<br>     <b>Latitude:</b> 45.932806<br>     <b>Longitude:</b> -68.714137     </div>`)[0];
+                popup_a7175fceb034401b6334d90980fb276e.setContent(html_1260513de0632c6528bddfb0de7f89f4);
+            
+        
+
+        circle_marker_c08c2984abc79366c9d82a4093287d8c.bindPopup(popup_a7175fceb034401b6334d90980fb276e)
+        ;
+
+        
+    
+    
+            var circle_marker_de13b7e70ba0358d46fad6a13a5ac68c = L.circleMarker(
+                [45.91889, -68.61312],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_c75591b1674f6ddd6035e37a607f2d12);
+        
+    
+        var popup_e3b494cd59fee7dc08bcf6b1ea48b4bc = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_36a3ec11bbb6bf4af26b4a7981d645df = $(`<div id="html_36a3ec11bbb6bf4af26b4a7981d645df" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> South Bridge 16<br>     <b>ID#:</b> 7412<br>     <b>Priority:</b> B<br>     <b>Latitude:</b> 45.91889<br>     <b>Longitude:</b> -68.61312     </div>`)[0];
+                popup_e3b494cd59fee7dc08bcf6b1ea48b4bc.setContent(html_36a3ec11bbb6bf4af26b4a7981d645df);
+            
+        
+
+        circle_marker_de13b7e70ba0358d46fad6a13a5ac68c.bindPopup(popup_e3b494cd59fee7dc08bcf6b1ea48b4bc)
+        ;
+
+        
+    
+    
+            var circle_marker_1f7587b550f5ae8e7393c7c0c1cf17b0 = L.circleMarker(
+                [45.92725, -68.60982],
+                {"bubblingMouseEvents": true, "color": "lightgreen", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "lightgreen", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_c75591b1674f6ddd6035e37a607f2d12);
+        
+    
+        var popup_72a7601127a372f82ba682b09d6a765f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c447637e22439190473bebca7c45e076 = $(`<div id="html_c447637e22439190473bebca7c45e076" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> South Bridge 17<br>     <b>ID#:</b> 7421<br>     <b>Priority:</b> D<br>     <b>Latitude:</b> 45.92725<br>     <b>Longitude:</b> -68.60982     </div>`)[0];
+                popup_72a7601127a372f82ba682b09d6a765f.setContent(html_c447637e22439190473bebca7c45e076);
+            
+        
+
+        circle_marker_1f7587b550f5ae8e7393c7c0c1cf17b0.bindPopup(popup_72a7601127a372f82ba682b09d6a765f)
+        ;
+
+        
+    
+    
+            var circle_marker_9015c8239cc5db4f216ad39cce15606c = L.circleMarker(
+                [45.932417, -68.613395],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_c75591b1674f6ddd6035e37a607f2d12);
+        
+    
+        var popup_458e9373968a3323f321b7886556cb5f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_dfc29282aff5df907af60a024e1b8a23 = $(`<div id="html_dfc29282aff5df907af60a024e1b8a23" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> South Bridge 18<br>     <b>ID#:</b> 7411<br>     <b>Priority:</b> C<br>     <b>Latitude:</b> 45.932417<br>     <b>Longitude:</b> -68.613395     </div>`)[0];
+                popup_458e9373968a3323f321b7886556cb5f.setContent(html_dfc29282aff5df907af60a024e1b8a23);
+            
+        
+
+        circle_marker_9015c8239cc5db4f216ad39cce15606c.bindPopup(popup_458e9373968a3323f321b7886556cb5f)
+        ;
+
+        
+    
+    
+            var circle_marker_9276d482d9d5ff0f0433e80e3543b936 = L.circleMarker(
+                [45.971831, -68.619969],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_c75591b1674f6ddd6035e37a607f2d12);
+        
+    
+        var popup_4d48bd85c2f476963cf39a05fe6d05e3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8d5d8410df640300fff21d907a2817b9 = $(`<div id="html_8d5d8410df640300fff21d907a2817b9" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> South Bridge 19<br>     <b>ID#:</b> <br>     <b>Priority:</b> B<br>     <b>Latitude:</b> 45.971831<br>     <b>Longitude:</b> -68.619969     </div>`)[0];
+                popup_4d48bd85c2f476963cf39a05fe6d05e3.setContent(html_8d5d8410df640300fff21d907a2817b9);
+            
+        
+
+        circle_marker_9276d482d9d5ff0f0433e80e3543b936.bindPopup(popup_4d48bd85c2f476963cf39a05fe6d05e3)
+        ;
+
+        
+    
+    
+            var circle_marker_d13ab47fe6062492c6a1d21c8d8faedd = L.circleMarker(
+                [45.978835, -68.648406],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_c75591b1674f6ddd6035e37a607f2d12);
+        
+    
+        var popup_8d9d83bd53ea7c0551df09e8800cdf87 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_af450a7452c4dff9e5555282b2696c31 = $(`<div id="html_af450a7452c4dff9e5555282b2696c31" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> South Bridge 20<br>     <b>ID#:</b> <br>     <b>Priority:</b> C<br>     <b>Latitude:</b> 45.978835<br>     <b>Longitude:</b> -68.648406     </div>`)[0];
+                popup_8d9d83bd53ea7c0551df09e8800cdf87.setContent(html_af450a7452c4dff9e5555282b2696c31);
+            
+        
+
+        circle_marker_d13ab47fe6062492c6a1d21c8d8faedd.bindPopup(popup_8d9d83bd53ea7c0551df09e8800cdf87)
+        ;
+
+        
+    
+    
+            var circle_marker_6dd2a506f3d5bcee26d25d5692b28bf7 = L.circleMarker(
+                [45.980854, -68.669901],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_c75591b1674f6ddd6035e37a607f2d12);
+        
+    
+        var popup_c57dc0c864d27b8a8ee458191ce6514c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1febf1fcc866d1562414a668f15d73f7 = $(`<div id="html_1febf1fcc866d1562414a668f15d73f7" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> South Bridge 21<br>     <b>ID#:</b> <br>     <b>Priority:</b> B<br>     <b>Latitude:</b> 45.980854<br>     <b>Longitude:</b> -68.669901     </div>`)[0];
+                popup_c57dc0c864d27b8a8ee458191ce6514c.setContent(html_1febf1fcc866d1562414a668f15d73f7);
+            
+        
+
+        circle_marker_6dd2a506f3d5bcee26d25d5692b28bf7.bindPopup(popup_c57dc0c864d27b8a8ee458191ce6514c)
+        ;
+
+        
+    
+    
+            var circle_marker_c1e061404b3b33cfbe75990a29b0466e = L.circleMarker(
+                [46.021369, -68.708421],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_c75591b1674f6ddd6035e37a607f2d12);
+        
+    
+        var popup_5f9a9e0f0562983d0c44745fe1ee8a19 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2ea88ed4eff2fae07bd58c62e0e258ba = $(`<div id="html_2ea88ed4eff2fae07bd58c62e0e258ba" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> South Bridge 22<br>     <b>ID#:</b> 7294<br>     <b>Priority:</b> A<br>     <b>Latitude:</b> 46.021369<br>     <b>Longitude:</b> -68.708421     </div>`)[0];
+                popup_5f9a9e0f0562983d0c44745fe1ee8a19.setContent(html_2ea88ed4eff2fae07bd58c62e0e258ba);
+            
+        
+
+        circle_marker_c1e061404b3b33cfbe75990a29b0466e.bindPopup(popup_5f9a9e0f0562983d0c44745fe1ee8a19)
+        ;
+
+        
+    
+    
+            var circle_marker_04b8c7498cc561979bc12675d5aac65c = L.circleMarker(
+                [45.926088, -68.574071],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_c75591b1674f6ddd6035e37a607f2d12);
+        
+    
+        var popup_96dc98533596065f0e59a1440d355a92 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_af4f86a47c0faae54f4cd74e1dc6a56c = $(`<div id="html_af4f86a47c0faae54f4cd74e1dc6a56c" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> South Bridge 23<br>     <b>ID#:</b> 7474<br>     <b>Priority:</b> C<br>     <b>Latitude:</b> 45.926088<br>     <b>Longitude:</b> -68.574071     </div>`)[0];
+                popup_96dc98533596065f0e59a1440d355a92.setContent(html_af4f86a47c0faae54f4cd74e1dc6a56c);
+            
+        
+
+        circle_marker_04b8c7498cc561979bc12675d5aac65c.bindPopup(popup_96dc98533596065f0e59a1440d355a92)
+        ;
+
+        
+    
+    
+            var circle_marker_aeff0d8703bbacb80d0d6145a3e272e5 = L.circleMarker(
+                [46.108598, -68.806534],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_c75591b1674f6ddd6035e37a607f2d12);
+        
+    
+        var popup_66e65ab357b54ed25ef7b3d5b4c25b52 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_08745e73bda0fbc10a76f7ebd8367e1a = $(`<div id="html_08745e73bda0fbc10a76f7ebd8367e1a" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> North Bridge 1<br>     <b>ID#:</b> 7217<br>     <b>Priority:</b> C<br>     <b>Latitude:</b> 46.108598<br>     <b>Longitude:</b> -68.806534     </div>`)[0];
+                popup_66e65ab357b54ed25ef7b3d5b4c25b52.setContent(html_08745e73bda0fbc10a76f7ebd8367e1a);
+            
+        
+
+        circle_marker_aeff0d8703bbacb80d0d6145a3e272e5.bindPopup(popup_66e65ab357b54ed25ef7b3d5b4c25b52)
+        ;
+
+        
+    
+    
+            var circle_marker_b67c20d247cde8091b216e645970ac39 = L.circleMarker(
+                [46.1048, -68.799846],
+                {"bubblingMouseEvents": true, "color": "darkgreen", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkgreen", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_c75591b1674f6ddd6035e37a607f2d12);
+        
+    
+        var popup_a71fd442d4821e5b77f9210c39245b93 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b4da817c9a9319c7c030e35a3adefb5d = $(`<div id="html_b4da817c9a9319c7c030e35a3adefb5d" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> North Bridge 2<br>     <b>ID#:</b> 7221<br>     <b>Priority:</b> Replaced<br>     <b>Latitude:</b> 46.1048<br>     <b>Longitude:</b> -68.799846     </div>`)[0];
+                popup_a71fd442d4821e5b77f9210c39245b93.setContent(html_b4da817c9a9319c7c030e35a3adefb5d);
+            
+        
+
+        circle_marker_b67c20d247cde8091b216e645970ac39.bindPopup(popup_a71fd442d4821e5b77f9210c39245b93)
+        ;
+
+        
+    
+    
+            var circle_marker_935e45f82dbe09fc239de9f1f0725c66 = L.circleMarker(
+                [46.104273, -68.806413],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_c75591b1674f6ddd6035e37a607f2d12);
+        
+    
+        var popup_46d6b5b77c47bb983f9779f3d58511d7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3eadd251a28bba69fbc7ac0e3d0eb34c = $(`<div id="html_3eadd251a28bba69fbc7ac0e3d0eb34c" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> North Bridge 3<br>     <b>ID#:</b> 7219<br>     <b>Priority:</b> C<br>     <b>Latitude:</b> 46.104273<br>     <b>Longitude:</b> -68.806413     </div>`)[0];
+                popup_46d6b5b77c47bb983f9779f3d58511d7.setContent(html_3eadd251a28bba69fbc7ac0e3d0eb34c);
+            
+        
+
+        circle_marker_935e45f82dbe09fc239de9f1f0725c66.bindPopup(popup_46d6b5b77c47bb983f9779f3d58511d7)
+        ;
+
+        
+    
+    
+            var circle_marker_e6435ee9f54c835fe4aa05624ccacc8a = L.circleMarker(
+                [46.09533, -68.80761],
+                {"bubblingMouseEvents": true, "color": "darkgreen", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkgreen", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_c75591b1674f6ddd6035e37a607f2d12);
+        
+    
+        var popup_63d824210ba426b5f8d6fe06701ae3b7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_dbeace878296206f5a288d18e2433271 = $(`<div id="html_dbeace878296206f5a288d18e2433271" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> North Bridge 4<br>     <b>ID#:</b> 7209<br>     <b>Priority:</b> Replaced<br>     <b>Latitude:</b> 46.09533<br>     <b>Longitude:</b> -68.80761     </div>`)[0];
+                popup_63d824210ba426b5f8d6fe06701ae3b7.setContent(html_dbeace878296206f5a288d18e2433271);
+            
+        
+
+        circle_marker_e6435ee9f54c835fe4aa05624ccacc8a.bindPopup(popup_63d824210ba426b5f8d6fe06701ae3b7)
+        ;
+
+        
+    
+    
+            var circle_marker_2e0ca8324f9b00acf4c93c8af516cf02 = L.circleMarker(
+                [46.080466, -68.793808],
+                {"bubblingMouseEvents": true, "color": "darkgreen", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkgreen", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_c75591b1674f6ddd6035e37a607f2d12);
+        
+    
+        var popup_2c401bb4ac983c42731c87dc0dc8da19 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_277e079ebbe2eefd6f81ac25773391a9 = $(`<div id="html_277e079ebbe2eefd6f81ac25773391a9" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> North Bridge 5<br>     <b>ID#:</b> 7041<br>     <b>Priority:</b> Replaced<br>     <b>Latitude:</b> 46.080466<br>     <b>Longitude:</b> -68.793808     </div>`)[0];
+                popup_2c401bb4ac983c42731c87dc0dc8da19.setContent(html_277e079ebbe2eefd6f81ac25773391a9);
+            
+        
+
+        circle_marker_2e0ca8324f9b00acf4c93c8af516cf02.bindPopup(popup_2c401bb4ac983c42731c87dc0dc8da19)
+        ;
+
+        
+    
+    
+            var circle_marker_5272a87a7709700b971b39f2e86033d6 = L.circleMarker(
+                [46.080753, -68.792879],
+                {"bubblingMouseEvents": true, "color": "darkgreen", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkgreen", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_c75591b1674f6ddd6035e37a607f2d12);
+        
+    
+        var popup_1405750ee8e006a31e1581f61cf11f81 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ab860f8f4d66ed6cf7458d9d6a9fc116 = $(`<div id="html_ab860f8f4d66ed6cf7458d9d6a9fc116" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> North Bridge 6<br>     <b>ID#:</b> 7042<br>     <b>Priority:</b> Replaced<br>     <b>Latitude:</b> 46.080753<br>     <b>Longitude:</b> -68.792879     </div>`)[0];
+                popup_1405750ee8e006a31e1581f61cf11f81.setContent(html_ab860f8f4d66ed6cf7458d9d6a9fc116);
+            
+        
+
+        circle_marker_5272a87a7709700b971b39f2e86033d6.bindPopup(popup_1405750ee8e006a31e1581f61cf11f81)
+        ;
+
+        
+    
+    
+            var circle_marker_6e417ec6859bbc67f6d6a578b73e0678 = L.circleMarker(
+                [46.07435, -68.77206],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_c75591b1674f6ddd6035e37a607f2d12);
+        
+    
+        var popup_70740fbecddeaf62f8b83a7a9795cd4d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_73a357b5f5695cb2acfe8a820d97ef3c = $(`<div id="html_73a357b5f5695cb2acfe8a820d97ef3c" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> North Bridge 7<br>     <b>ID#:</b> 7242<br>     <b>Priority:</b> B<br>     <b>Latitude:</b> 46.07435<br>     <b>Longitude:</b> -68.77206     </div>`)[0];
+                popup_70740fbecddeaf62f8b83a7a9795cd4d.setContent(html_73a357b5f5695cb2acfe8a820d97ef3c);
+            
+        
+
+        circle_marker_6e417ec6859bbc67f6d6a578b73e0678.bindPopup(popup_70740fbecddeaf62f8b83a7a9795cd4d)
+        ;
+
+        
+    
+    
+            var circle_marker_d6076679e1a5b9544b7c7e3c98549962 = L.circleMarker(
+                [46.05296, -68.775357],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_c75591b1674f6ddd6035e37a607f2d12);
+        
+    
+        var popup_4a238757695cea6e41a6a145c4ebb425 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_34b17abf941d7be799aab36b63d2a3d1 = $(`<div id="html_34b17abf941d7be799aab36b63d2a3d1" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> North Bridge 8<br>     <b>ID#:</b> 7240<br>     <b>Priority:</b> B<br>     <b>Latitude:</b> 46.05296<br>     <b>Longitude:</b> -68.775357     </div>`)[0];
+                popup_4a238757695cea6e41a6a145c4ebb425.setContent(html_34b17abf941d7be799aab36b63d2a3d1);
+            
+        
+
+        circle_marker_d6076679e1a5b9544b7c7e3c98549962.bindPopup(popup_4a238757695cea6e41a6a145c4ebb425)
+        ;
+
+        
+    
+    
+            var circle_marker_e879308d2a4eb9ce0d8803c1e77dff3a = L.circleMarker(
+                [46.05272, -68.775687],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_c75591b1674f6ddd6035e37a607f2d12);
+        
+    
+        var popup_92a3d438c482ee296e854e1d10196b7b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_cd32e73c0b82c073e4d90777166a6cc9 = $(`<div id="html_cd32e73c0b82c073e4d90777166a6cc9" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> North Bridge 9<br>     <b>ID#:</b> <br>     <b>Priority:</b> A<br>     <b>Latitude:</b> 46.05272<br>     <b>Longitude:</b> -68.775687     </div>`)[0];
+                popup_92a3d438c482ee296e854e1d10196b7b.setContent(html_cd32e73c0b82c073e4d90777166a6cc9);
+            
+        
+
+        circle_marker_e879308d2a4eb9ce0d8803c1e77dff3a.bindPopup(popup_92a3d438c482ee296e854e1d10196b7b)
+        ;
+
+        
+    
+    
+            var circle_marker_436eca81541db12a0c1ef6712a2ff638 = L.circleMarker(
+                [46.033271, -68.780727],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_c75591b1674f6ddd6035e37a607f2d12);
+        
+    
+        var popup_6564c21c03813109e7874ea9a3d94dd9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_eb05d134c9748a19ee5f7830cbf85aa5 = $(`<div id="html_eb05d134c9748a19ee5f7830cbf85aa5" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> North Bridge 10<br>     <b>ID#:</b> 7239<br>     <b>Priority:</b> Removed<br>     <b>Latitude:</b> 46.033271<br>     <b>Longitude:</b> -68.780727     </div>`)[0];
+                popup_6564c21c03813109e7874ea9a3d94dd9.setContent(html_eb05d134c9748a19ee5f7830cbf85aa5);
+            
+        
+
+        circle_marker_436eca81541db12a0c1ef6712a2ff638.bindPopup(popup_6564c21c03813109e7874ea9a3d94dd9)
+        ;
+
+        
+    
+    
+            var circle_marker_67068f7e3f2f0b1f87f9e7f2bd96a696 = L.circleMarker(
+                [46.002345, -68.534712],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_c75591b1674f6ddd6035e37a607f2d12);
+        
+    
+        var popup_331e31ed9ad7b67624388a6a87f50a9f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_482c1e0b8e4955b5d6fa97e902181597 = $(`<div id="html_482c1e0b8e4955b5d6fa97e902181597" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> Seboeis Bridge 1<br>     <b>ID#:</b> <br>     <b>Priority:</b> B<br>     <b>Latitude:</b> 46.002345<br>     <b>Longitude:</b> -68.534712     </div>`)[0];
+                popup_331e31ed9ad7b67624388a6a87f50a9f.setContent(html_482c1e0b8e4955b5d6fa97e902181597);
+            
+        
+
+        circle_marker_67068f7e3f2f0b1f87f9e7f2bd96a696.bindPopup(popup_331e31ed9ad7b67624388a6a87f50a9f)
+        ;
+
+        
+    
+    
+            var circle_marker_80cb0d2242466f891caa1cf4b3b4e8aa = L.circleMarker(
+                [46.014363, -68.57132],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_c75591b1674f6ddd6035e37a607f2d12);
+        
+    
+        var popup_772f855fe18e1f6449159ef85f8f1ab8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3958ac7f600156a13f139d39b9401bab = $(`<div id="html_3958ac7f600156a13f139d39b9401bab" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> Seboeis Bridge 2<br>     <b>ID#:</b> 7482<br>     <b>Priority:</b> C<br>     <b>Latitude:</b> 46.014363<br>     <b>Longitude:</b> -68.57132     </div>`)[0];
+                popup_772f855fe18e1f6449159ef85f8f1ab8.setContent(html_3958ac7f600156a13f139d39b9401bab);
+            
+        
+
+        circle_marker_80cb0d2242466f891caa1cf4b3b4e8aa.bindPopup(popup_772f855fe18e1f6449159ef85f8f1ab8)
+        ;
+
+        
+    
+    
+            var circle_marker_4f68e5be4ca3471ee6bdcfc544cbb28d = L.circleMarker(
+                [46.054241, -68.590781],
+                {"bubblingMouseEvents": true, "color": "darkgreen", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkgreen", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_c75591b1674f6ddd6035e37a607f2d12);
+        
+    
+        var popup_3b8a65a1fd90b84c4baedac767f00d55 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_580ad100ba9dc1bb383fb2dcff95999e = $(`<div id="html_580ad100ba9dc1bb383fb2dcff95999e" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> Seboeis Bridge 3<br>     <b>ID#:</b> 7447<br>     <b>Priority:</b> Replaced<br>     <b>Latitude:</b> 46.054241<br>     <b>Longitude:</b> -68.590781     </div>`)[0];
+                popup_3b8a65a1fd90b84c4baedac767f00d55.setContent(html_580ad100ba9dc1bb383fb2dcff95999e);
+            
+        
+
+        circle_marker_4f68e5be4ca3471ee6bdcfc544cbb28d.bindPopup(popup_3b8a65a1fd90b84c4baedac767f00d55)
+        ;
+
+        
+    
+    
+            var circle_marker_1ac165a8f95ecae1bcfb697ba0fef302 = L.circleMarker(
+                [46.077601, -68.615413],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_c75591b1674f6ddd6035e37a607f2d12);
+        
+    
+        var popup_a11f0f847aaac2546dc2e3f766b3f212 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a1cdb46c0af916198d3e8ceadbb81a19 = $(`<div id="html_a1cdb46c0af916198d3e8ceadbb81a19" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> Seboeis Bridge 4<br>     <b>ID#:</b> 7593<br>     <b>Priority:</b> C<br>     <b>Latitude:</b> 46.077601<br>     <b>Longitude:</b> -68.615413     </div>`)[0];
+                popup_a11f0f847aaac2546dc2e3f766b3f212.setContent(html_a1cdb46c0af916198d3e8ceadbb81a19);
+            
+        
+
+        circle_marker_1ac165a8f95ecae1bcfb697ba0fef302.bindPopup(popup_a11f0f847aaac2546dc2e3f766b3f212)
+        ;
+
+        
+    
+    
+            var circle_marker_dc2d5e69a0a5f6ab3c01cfb12eceb288 = L.circleMarker(
+                [46.049612, -68.570178],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_c75591b1674f6ddd6035e37a607f2d12);
+        
+    
+        var popup_850660441611b1c450c6bc381e63b813 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6617c25b4d7357dfd1485ff9e69df1f9 = $(`<div id="html_6617c25b4d7357dfd1485ff9e69df1f9" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> Seboeis Bridge 5<br>     <b>ID#:</b> 7488<br>     <b>Priority:</b> C<br>     <b>Latitude:</b> 46.049612<br>     <b>Longitude:</b> -68.570178     </div>`)[0];
+                popup_850660441611b1c450c6bc381e63b813.setContent(html_6617c25b4d7357dfd1485ff9e69df1f9);
+            
+        
+
+        circle_marker_dc2d5e69a0a5f6ab3c01cfb12eceb288.bindPopup(popup_850660441611b1c450c6bc381e63b813)
+        ;
+
+        
+    
+    
+            var circle_marker_77745cdf17a8012dce74b62df2931660 = L.circleMarker(
+                [46.073833, -68.575797],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_c75591b1674f6ddd6035e37a607f2d12);
+        
+    
+        var popup_0d7617cb7b5304e672ad0a34c0573d28 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9e8c0affe16e27cca30e09f9a7a7d651 = $(`<div id="html_9e8c0affe16e27cca30e09f9a7a7d651" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> Seboeis Bridge 6<br>     <b>ID#:</b> <br>     <b>Priority:</b> B<br>     <b>Latitude:</b> 46.073833<br>     <b>Longitude:</b> -68.575797     </div>`)[0];
+                popup_0d7617cb7b5304e672ad0a34c0573d28.setContent(html_9e8c0affe16e27cca30e09f9a7a7d651);
+            
+        
+
+        circle_marker_77745cdf17a8012dce74b62df2931660.bindPopup(popup_0d7617cb7b5304e672ad0a34c0573d28)
+        ;
+
+        
+    
+    
+            var circle_marker_8b9763444ff6b572d8367e877c88992a = L.circleMarker(
+                [46.016963, -68.593605],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_c75591b1674f6ddd6035e37a607f2d12);
+        
+    
+        var popup_325344515577dc6863d72327b3c9c276 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fc0403660a86abf72eb334db0b7e4b2c = $(`<div id="html_fc0403660a86abf72eb334db0b7e4b2c" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> Seboeis Bridge 7<br>     <b>ID#:</b> 7451<br>     <b>Priority:</b> C<br>     <b>Latitude:</b> 46.016963<br>     <b>Longitude:</b> -68.593605     </div>`)[0];
+                popup_325344515577dc6863d72327b3c9c276.setContent(html_fc0403660a86abf72eb334db0b7e4b2c);
+            
+        
+
+        circle_marker_8b9763444ff6b572d8367e877c88992a.bindPopup(popup_325344515577dc6863d72327b3c9c276)
+        ;
+
+        
+    
+    
+            tile_layer_4c510e8106da2a5c13845ddf2a64a6e3.addTo(map_c75591b1674f6ddd6035e37a607f2d12);
+        
+    
+            var feature_group_f5aaf287932f282c85520ae81466de62 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_8df1faa06aa28edcf218c8acd307dccf = L.circleMarker(
+                [45.932806, -68.714137],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_f5aaf287932f282c85520ae81466de62);
+        
+    
+        var popup_da3b1d53b6551f541e73bb8896fd0fd9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6e7729702b1c960fdcba355c4b8b4bce = $(`<div id="html_6e7729702b1c960fdcba355c4b8b4bce" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> South Bridge 15<br>     <b>ID#:</b> 7289<br>     <b>Priority:</b> A<br>     <b>Lat:</b> 45.932806<br>     <b>Long:</b> -68.714137     </div>`)[0];
+                popup_da3b1d53b6551f541e73bb8896fd0fd9.setContent(html_6e7729702b1c960fdcba355c4b8b4bce);
+            
+        
+
+        circle_marker_8df1faa06aa28edcf218c8acd307dccf.bindPopup(popup_da3b1d53b6551f541e73bb8896fd0fd9)
+        ;
+
+        
+    
+    
+            var circle_marker_8d97111c1f1819f91ea90969e0733e38 = L.circleMarker(
+                [46.021369, -68.708421],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_f5aaf287932f282c85520ae81466de62);
+        
+    
+        var popup_f18c89fa2fcbc383dd6d296fa6f498b1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_08943c69c4065783e50007715cd175ad = $(`<div id="html_08943c69c4065783e50007715cd175ad" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> South Bridge 22<br>     <b>ID#:</b> 7294<br>     <b>Priority:</b> A<br>     <b>Lat:</b> 46.021369<br>     <b>Long:</b> -68.708421     </div>`)[0];
+                popup_f18c89fa2fcbc383dd6d296fa6f498b1.setContent(html_08943c69c4065783e50007715cd175ad);
+            
+        
+
+        circle_marker_8d97111c1f1819f91ea90969e0733e38.bindPopup(popup_f18c89fa2fcbc383dd6d296fa6f498b1)
+        ;
+
+        
+    
+    
+            var circle_marker_126ad028ec21ec8b36d3874c0a514c8f = L.circleMarker(
+                [46.05272, -68.775687],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_f5aaf287932f282c85520ae81466de62);
+        
+    
+        var popup_fa41db047011a51f185eb1a73ef5da07 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6e363d9624eb76c40fdd352984ffff64 = $(`<div id="html_6e363d9624eb76c40fdd352984ffff64" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> North Bridge 9<br>     <b>ID#:</b> <br>     <b>Priority:</b> A<br>     <b>Lat:</b> 46.05272<br>     <b>Long:</b> -68.775687     </div>`)[0];
+                popup_fa41db047011a51f185eb1a73ef5da07.setContent(html_6e363d9624eb76c40fdd352984ffff64);
+            
+        
+
+        circle_marker_126ad028ec21ec8b36d3874c0a514c8f.bindPopup(popup_fa41db047011a51f185eb1a73ef5da07)
+        ;
+
+        
+    
+    
+            feature_group_f5aaf287932f282c85520ae81466de62.addTo(map_c75591b1674f6ddd6035e37a607f2d12);
+        
+    
+            var feature_group_f91c94fb14fd8101cb18ca075160c650 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_c8ffc9474fe448d66cef8fe0aca8c3bc = L.circleMarker(
+                [45.865684, -68.522615],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_f91c94fb14fd8101cb18ca075160c650);
+        
+    
+        var popup_2aced452a4c652fb1cad788ea76dd809 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_68578fca28841aaeb2e14c1a4d16a16d = $(`<div id="html_68578fca28841aaeb2e14c1a4d16a16d" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> South Bridge 1 <br>     <b>ID#:</b> 7566<br>     <b>Priority:</b> B<br>     <b>Lat:</b> 45.865684<br>     <b>Long:</b> -68.522615     </div>`)[0];
+                popup_2aced452a4c652fb1cad788ea76dd809.setContent(html_68578fca28841aaeb2e14c1a4d16a16d);
+            
+        
+
+        circle_marker_c8ffc9474fe448d66cef8fe0aca8c3bc.bindPopup(popup_2aced452a4c652fb1cad788ea76dd809)
+        ;
+
+        
+    
+    
+            var circle_marker_5d596f5436b51960d7967b0c703542d3 = L.circleMarker(
+                [45.861127, -68.623882],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_f91c94fb14fd8101cb18ca075160c650);
+        
+    
+        var popup_7eda11593a6410b9b27206051a6f24be = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c78f35c1cdcc86992de9a66d77196101 = $(`<div id="html_c78f35c1cdcc86992de9a66d77196101" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> South Bridge 6<br>     <b>ID#:</b> <br>     <b>Priority:</b> B<br>     <b>Lat:</b> 45.861127<br>     <b>Long:</b> -68.623882     </div>`)[0];
+                popup_7eda11593a6410b9b27206051a6f24be.setContent(html_c78f35c1cdcc86992de9a66d77196101);
+            
+        
+
+        circle_marker_5d596f5436b51960d7967b0c703542d3.bindPopup(popup_7eda11593a6410b9b27206051a6f24be)
+        ;
+
+        
+    
+    
+            var circle_marker_96eb708224d7b4c113660f48cab2198b = L.circleMarker(
+                [45.863512, -68.629658],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_f91c94fb14fd8101cb18ca075160c650);
+        
+    
+        var popup_4557b001cd213ae96bce92f67f8e8367 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b5fa8b34707141e20ec63e381bacb23d = $(`<div id="html_b5fa8b34707141e20ec63e381bacb23d" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> South Bridge 7<br>     <b>ID#:</b> 7392<br>     <b>Priority:</b> B<br>     <b>Lat:</b> 45.863512<br>     <b>Long:</b> -68.629658     </div>`)[0];
+                popup_4557b001cd213ae96bce92f67f8e8367.setContent(html_b5fa8b34707141e20ec63e381bacb23d);
+            
+        
+
+        circle_marker_96eb708224d7b4c113660f48cab2198b.bindPopup(popup_4557b001cd213ae96bce92f67f8e8367)
+        ;
+
+        
+    
+    
+            var circle_marker_7e5249d87d3d707059ebb6f5b0301b2f = L.circleMarker(
+                [45.866488, -68.678615],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_f91c94fb14fd8101cb18ca075160c650);
+        
+    
+        var popup_9c2540466b9a0c057a5df50e88f02aad = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9186e6aa0ba06f48b54bac5d97c48edf = $(`<div id="html_9186e6aa0ba06f48b54bac5d97c48edf" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b>  South Bridge 9<br>     <b>ID#:</b> 7331<br>     <b>Priority:</b> B<br>     <b>Lat:</b> 45.866488<br>     <b>Long:</b> -68.678615     </div>`)[0];
+                popup_9c2540466b9a0c057a5df50e88f02aad.setContent(html_9186e6aa0ba06f48b54bac5d97c48edf);
+            
+        
+
+        circle_marker_7e5249d87d3d707059ebb6f5b0301b2f.bindPopup(popup_9c2540466b9a0c057a5df50e88f02aad)
+        ;
+
+        
+    
+    
+            var circle_marker_35cae70bc25733bccb807b1d36f3bd2a = L.circleMarker(
+                [45.870615, -68.706375],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_f91c94fb14fd8101cb18ca075160c650);
+        
+    
+        var popup_cedebfc8a76732d05c4089a16c4f5047 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1076ff400327eeef90c6563cc91cc550 = $(`<div id="html_1076ff400327eeef90c6563cc91cc550" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> South Bridge 10<br>     <b>ID#:</b> 7296<br>     <b>Priority:</b> B<br>     <b>Lat:</b> 45.870615<br>     <b>Long:</b> -68.706375     </div>`)[0];
+                popup_cedebfc8a76732d05c4089a16c4f5047.setContent(html_1076ff400327eeef90c6563cc91cc550);
+            
+        
+
+        circle_marker_35cae70bc25733bccb807b1d36f3bd2a.bindPopup(popup_cedebfc8a76732d05c4089a16c4f5047)
+        ;
+
+        
+    
+    
+            var circle_marker_252c87c71f7f47c33fc337fdefca57ec = L.circleMarker(
+                [45.91889, -68.61312],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_f91c94fb14fd8101cb18ca075160c650);
+        
+    
+        var popup_dbb3ff01d01750a98aa5300dee0a4fe6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_04e7a2044eeaf1569522bf3a77eed8ff = $(`<div id="html_04e7a2044eeaf1569522bf3a77eed8ff" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> South Bridge 16<br>     <b>ID#:</b> 7412<br>     <b>Priority:</b> B<br>     <b>Lat:</b> 45.91889<br>     <b>Long:</b> -68.61312     </div>`)[0];
+                popup_dbb3ff01d01750a98aa5300dee0a4fe6.setContent(html_04e7a2044eeaf1569522bf3a77eed8ff);
+            
+        
+
+        circle_marker_252c87c71f7f47c33fc337fdefca57ec.bindPopup(popup_dbb3ff01d01750a98aa5300dee0a4fe6)
+        ;
+
+        
+    
+    
+            var circle_marker_f831fb2ea1bfc18d1620980932b8f62c = L.circleMarker(
+                [45.971831, -68.619969],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_f91c94fb14fd8101cb18ca075160c650);
+        
+    
+        var popup_f968f616afbdfecb602c2afddb71cd1e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_13f237c4e35e0e14b06b3114c876f651 = $(`<div id="html_13f237c4e35e0e14b06b3114c876f651" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> South Bridge 19<br>     <b>ID#:</b> <br>     <b>Priority:</b> B<br>     <b>Lat:</b> 45.971831<br>     <b>Long:</b> -68.619969     </div>`)[0];
+                popup_f968f616afbdfecb602c2afddb71cd1e.setContent(html_13f237c4e35e0e14b06b3114c876f651);
+            
+        
+
+        circle_marker_f831fb2ea1bfc18d1620980932b8f62c.bindPopup(popup_f968f616afbdfecb602c2afddb71cd1e)
+        ;
+
+        
+    
+    
+            var circle_marker_acd2035c1ec9d32a7c487a68abcfad3f = L.circleMarker(
+                [45.980854, -68.669901],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_f91c94fb14fd8101cb18ca075160c650);
+        
+    
+        var popup_06c465ced425d8b76c3fe206b20bdbf7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ed607fa6ad8a5b72f3592ee90451952f = $(`<div id="html_ed607fa6ad8a5b72f3592ee90451952f" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> South Bridge 21<br>     <b>ID#:</b> <br>     <b>Priority:</b> B<br>     <b>Lat:</b> 45.980854<br>     <b>Long:</b> -68.669901     </div>`)[0];
+                popup_06c465ced425d8b76c3fe206b20bdbf7.setContent(html_ed607fa6ad8a5b72f3592ee90451952f);
+            
+        
+
+        circle_marker_acd2035c1ec9d32a7c487a68abcfad3f.bindPopup(popup_06c465ced425d8b76c3fe206b20bdbf7)
+        ;
+
+        
+    
+    
+            var circle_marker_c83b03d6c4e634c7a747358aacf7ef2f = L.circleMarker(
+                [46.07435, -68.77206],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_f91c94fb14fd8101cb18ca075160c650);
+        
+    
+        var popup_ebb88057afa8f6c44428454ebba2ac20 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_aabacefbed855287ace6ffa62d8552e7 = $(`<div id="html_aabacefbed855287ace6ffa62d8552e7" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> North Bridge 7<br>     <b>ID#:</b> 7242<br>     <b>Priority:</b> B<br>     <b>Lat:</b> 46.07435<br>     <b>Long:</b> -68.77206     </div>`)[0];
+                popup_ebb88057afa8f6c44428454ebba2ac20.setContent(html_aabacefbed855287ace6ffa62d8552e7);
+            
+        
+
+        circle_marker_c83b03d6c4e634c7a747358aacf7ef2f.bindPopup(popup_ebb88057afa8f6c44428454ebba2ac20)
+        ;
+
+        
+    
+    
+            var circle_marker_55e2736c036ac0f8d8fbb421c9168839 = L.circleMarker(
+                [46.05296, -68.775357],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_f91c94fb14fd8101cb18ca075160c650);
+        
+    
+        var popup_2564f3e5b24aaf3a4bd34e0d2fa86b45 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_63b6b9f7691709adb3a723bb02ab24d6 = $(`<div id="html_63b6b9f7691709adb3a723bb02ab24d6" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> North Bridge 8<br>     <b>ID#:</b> 7240<br>     <b>Priority:</b> B<br>     <b>Lat:</b> 46.05296<br>     <b>Long:</b> -68.775357     </div>`)[0];
+                popup_2564f3e5b24aaf3a4bd34e0d2fa86b45.setContent(html_63b6b9f7691709adb3a723bb02ab24d6);
+            
+        
+
+        circle_marker_55e2736c036ac0f8d8fbb421c9168839.bindPopup(popup_2564f3e5b24aaf3a4bd34e0d2fa86b45)
+        ;
+
+        
+    
+    
+            var circle_marker_1948709d02b486f56b9c4a1bfdd9006c = L.circleMarker(
+                [46.002345, -68.534712],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_f91c94fb14fd8101cb18ca075160c650);
+        
+    
+        var popup_c2db2facdd53147f4f54b9781d7db1b3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_bdcb0c6b871761dddc5333c84890b0fa = $(`<div id="html_bdcb0c6b871761dddc5333c84890b0fa" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> Seboeis Bridge 1<br>     <b>ID#:</b> <br>     <b>Priority:</b> B<br>     <b>Lat:</b> 46.002345<br>     <b>Long:</b> -68.534712     </div>`)[0];
+                popup_c2db2facdd53147f4f54b9781d7db1b3.setContent(html_bdcb0c6b871761dddc5333c84890b0fa);
+            
+        
+
+        circle_marker_1948709d02b486f56b9c4a1bfdd9006c.bindPopup(popup_c2db2facdd53147f4f54b9781d7db1b3)
+        ;
+
+        
+    
+    
+            var circle_marker_95b684b68e6d7838e6df804493b1bb66 = L.circleMarker(
+                [46.073833, -68.575797],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_f91c94fb14fd8101cb18ca075160c650);
+        
+    
+        var popup_1e9e92e914dadbbd9a6ad1413e574c8e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_af35d80fcb0236e8e3d90761e34b1af9 = $(`<div id="html_af35d80fcb0236e8e3d90761e34b1af9" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> Seboeis Bridge 6<br>     <b>ID#:</b> <br>     <b>Priority:</b> B<br>     <b>Lat:</b> 46.073833<br>     <b>Long:</b> -68.575797     </div>`)[0];
+                popup_1e9e92e914dadbbd9a6ad1413e574c8e.setContent(html_af35d80fcb0236e8e3d90761e34b1af9);
+            
+        
+
+        circle_marker_95b684b68e6d7838e6df804493b1bb66.bindPopup(popup_1e9e92e914dadbbd9a6ad1413e574c8e)
+        ;
+
+        
+    
+    
+            feature_group_f91c94fb14fd8101cb18ca075160c650.addTo(map_c75591b1674f6ddd6035e37a607f2d12);
+        
+    
+            var feature_group_320c4ac030a9c08d21afc6b94dfa6daa = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_ebef59ec1a9c534540084ff1308a0cab = L.circleMarker(
+                [45.8804, -68.56931],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_320c4ac030a9c08d21afc6b94dfa6daa);
+        
+    
+        var popup_09b30ce9201562bf2019830e451e6cf3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f6e766ee773527b22a42ba1eaa5bdbbb = $(`<div id="html_f6e766ee773527b22a42ba1eaa5bdbbb" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> South Bridge 2 <br>     <b>ID#:</b> 7981<br>     <b>Priority:</b> C<br>     <b>Lat:</b> 45.8804<br>     <b>Long:</b> -68.56931     </div>`)[0];
+                popup_09b30ce9201562bf2019830e451e6cf3.setContent(html_f6e766ee773527b22a42ba1eaa5bdbbb);
+            
+        
+
+        circle_marker_ebef59ec1a9c534540084ff1308a0cab.bindPopup(popup_09b30ce9201562bf2019830e451e6cf3)
+        ;
+
+        
+    
+    
+            var circle_marker_00ef3e6ff8b365238f717c431d9490b8 = L.circleMarker(
+                [45.88048, -68.56475],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_320c4ac030a9c08d21afc6b94dfa6daa);
+        
+    
+        var popup_caf67e11b1be8bf4ca9617f4bd1afaa1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_21b76705dfab10f383ca92508add6d85 = $(`<div id="html_21b76705dfab10f383ca92508add6d85" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> South Bridge 3<br>     <b>ID#:</b> 7494<br>     <b>Priority:</b> C<br>     <b>Lat:</b> 45.88048<br>     <b>Long:</b> -68.56475     </div>`)[0];
+                popup_caf67e11b1be8bf4ca9617f4bd1afaa1.setContent(html_21b76705dfab10f383ca92508add6d85);
+            
+        
+
+        circle_marker_00ef3e6ff8b365238f717c431d9490b8.bindPopup(popup_caf67e11b1be8bf4ca9617f4bd1afaa1)
+        ;
+
+        
+    
+    
+            var circle_marker_0a6728504f83814dbf18ab2ae19765e1 = L.circleMarker(
+                [45.8804, -68.56931],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_320c4ac030a9c08d21afc6b94dfa6daa);
+        
+    
+        var popup_2b22205567417142ef9f85ee13c80135 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8252c5180ddebfa227a5648ff24ddfd9 = $(`<div id="html_8252c5180ddebfa227a5648ff24ddfd9" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> South Bridge 4<br>     <b>ID#:</b> 7491<br>     <b>Priority:</b> C<br>     <b>Lat:</b> 45.8804<br>     <b>Long:</b> -68.56931     </div>`)[0];
+                popup_2b22205567417142ef9f85ee13c80135.setContent(html_8252c5180ddebfa227a5648ff24ddfd9);
+            
+        
+
+        circle_marker_0a6728504f83814dbf18ab2ae19765e1.bindPopup(popup_2b22205567417142ef9f85ee13c80135)
+        ;
+
+        
+    
+    
+            var circle_marker_eb8ef6ea5014ef61485faa9640866894 = L.circleMarker(
+                [45.88022, -68.59032],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_320c4ac030a9c08d21afc6b94dfa6daa);
+        
+    
+        var popup_7e085a80031b51a1e338cfe17ae40ca4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b5b77f31c87665ff26e3a18b586f11de = $(`<div id="html_b5b77f31c87665ff26e3a18b586f11de" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> South Bridge 5<br>     <b>ID#:</b> 7452<br>     <b>Priority:</b> C<br>     <b>Lat:</b> 45.88022<br>     <b>Long:</b> -68.59032     </div>`)[0];
+                popup_7e085a80031b51a1e338cfe17ae40ca4.setContent(html_b5b77f31c87665ff26e3a18b586f11de);
+            
+        
+
+        circle_marker_eb8ef6ea5014ef61485faa9640866894.bindPopup(popup_7e085a80031b51a1e338cfe17ae40ca4)
+        ;
+
+        
+    
+    
+            var circle_marker_6f1046763429d30cdf353deb9a873312 = L.circleMarker(
+                [45.859346, -68.67413],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_320c4ac030a9c08d21afc6b94dfa6daa);
+        
+    
+        var popup_9f6e7507c462d00c7c98616033b872d4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_70dc8e4199f18ae00223b5debe300206 = $(`<div id="html_70dc8e4199f18ae00223b5debe300206" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> South Bridge 8<br>     <b>ID#:</b> 7335<br>     <b>Priority:</b> C<br>     <b>Lat:</b> 45.859346<br>     <b>Long:</b> -68.67413     </div>`)[0];
+                popup_9f6e7507c462d00c7c98616033b872d4.setContent(html_70dc8e4199f18ae00223b5debe300206);
+            
+        
+
+        circle_marker_6f1046763429d30cdf353deb9a873312.bindPopup(popup_9f6e7507c462d00c7c98616033b872d4)
+        ;
+
+        
+    
+    
+            var circle_marker_029383a3ce2f30d62511786dca42d05a = L.circleMarker(
+                [45.82935, -68.70163],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_320c4ac030a9c08d21afc6b94dfa6daa);
+        
+    
+        var popup_dcdc38f169a4e7ea71f2427a3c57c1b9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a92741d794f8c755dcbf31d1174ad9d2 = $(`<div id="html_a92741d794f8c755dcbf31d1174ad9d2" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> South Bridge 11<br>     <b>ID#:</b> 7542<br>     <b>Priority:</b> C<br>     <b>Lat:</b> 45.82935<br>     <b>Long:</b> -68.70163     </div>`)[0];
+                popup_dcdc38f169a4e7ea71f2427a3c57c1b9.setContent(html_a92741d794f8c755dcbf31d1174ad9d2);
+            
+        
+
+        circle_marker_029383a3ce2f30d62511786dca42d05a.bindPopup(popup_dcdc38f169a4e7ea71f2427a3c57c1b9)
+        ;
+
+        
+    
+    
+            var circle_marker_144596515b5ee189043877ceeecdce06 = L.circleMarker(
+                [45.845041, -68.725615],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_320c4ac030a9c08d21afc6b94dfa6daa);
+        
+    
+        var popup_4c616bf3d8e494c808e2f61e37598ee3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e7aaf58130be1f7f496ee53f86d73a8c = $(`<div id="html_e7aaf58130be1f7f496ee53f86d73a8c" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> South Bridge 12<br>     <b>ID#:</b> 7578<br>     <b>Priority:</b> C<br>     <b>Lat:</b> 45.845041<br>     <b>Long:</b> -68.725615     </div>`)[0];
+                popup_4c616bf3d8e494c808e2f61e37598ee3.setContent(html_e7aaf58130be1f7f496ee53f86d73a8c);
+            
+        
+
+        circle_marker_144596515b5ee189043877ceeecdce06.bindPopup(popup_4c616bf3d8e494c808e2f61e37598ee3)
+        ;
+
+        
+    
+    
+            var circle_marker_928b5e56724b00b61fb05209cff23372 = L.circleMarker(
+                [45.919901, -68.762449],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_320c4ac030a9c08d21afc6b94dfa6daa);
+        
+    
+        var popup_d8bdb605f3b896bc138fd7d01c17878b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b044831b1b90f177adbaff927423a35f = $(`<div id="html_b044831b1b90f177adbaff927423a35f" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> South Bridge 13<br>     <b>ID#:</b> <br>     <b>Priority:</b> C<br>     <b>Lat:</b> 45.919901<br>     <b>Long:</b> -68.762449     </div>`)[0];
+                popup_d8bdb605f3b896bc138fd7d01c17878b.setContent(html_b044831b1b90f177adbaff927423a35f);
+            
+        
+
+        circle_marker_928b5e56724b00b61fb05209cff23372.bindPopup(popup_d8bdb605f3b896bc138fd7d01c17878b)
+        ;
+
+        
+    
+    
+            var circle_marker_3543af8a2c4ad698c4d45f007a6fc9e8 = L.circleMarker(
+                [45.890855, -68.710662],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_320c4ac030a9c08d21afc6b94dfa6daa);
+        
+    
+        var popup_8b268185cc44c990747dd8c1597008bf = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0cf54f2334512d48b4fd7d84417c3c79 = $(`<div id="html_0cf54f2334512d48b4fd7d84417c3c79" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> South Bridge 14<br>     <b>ID#:</b> 7293<br>     <b>Priority:</b> C<br>     <b>Lat:</b> 45.890855<br>     <b>Long:</b> -68.710662     </div>`)[0];
+                popup_8b268185cc44c990747dd8c1597008bf.setContent(html_0cf54f2334512d48b4fd7d84417c3c79);
+            
+        
+
+        circle_marker_3543af8a2c4ad698c4d45f007a6fc9e8.bindPopup(popup_8b268185cc44c990747dd8c1597008bf)
+        ;
+
+        
+    
+    
+            var circle_marker_9a4fcca89f67ba2edc51c6220acee89c = L.circleMarker(
+                [45.932417, -68.613395],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_320c4ac030a9c08d21afc6b94dfa6daa);
+        
+    
+        var popup_3c0d5570d0ff0e3b995b1936643b3737 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d6997f989f166c09d07640e1ee0fd904 = $(`<div id="html_d6997f989f166c09d07640e1ee0fd904" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> South Bridge 18<br>     <b>ID#:</b> 7411<br>     <b>Priority:</b> C<br>     <b>Lat:</b> 45.932417<br>     <b>Long:</b> -68.613395     </div>`)[0];
+                popup_3c0d5570d0ff0e3b995b1936643b3737.setContent(html_d6997f989f166c09d07640e1ee0fd904);
+            
+        
+
+        circle_marker_9a4fcca89f67ba2edc51c6220acee89c.bindPopup(popup_3c0d5570d0ff0e3b995b1936643b3737)
+        ;
+
+        
+    
+    
+            var circle_marker_8ba558e1a0cdb57b518ff1bbe868deee = L.circleMarker(
+                [45.978835, -68.648406],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_320c4ac030a9c08d21afc6b94dfa6daa);
+        
+    
+        var popup_674db331d31d19c649faf41277555340 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_51230244054360eb94b1dc460deb1b32 = $(`<div id="html_51230244054360eb94b1dc460deb1b32" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> South Bridge 20<br>     <b>ID#:</b> <br>     <b>Priority:</b> C<br>     <b>Lat:</b> 45.978835<br>     <b>Long:</b> -68.648406     </div>`)[0];
+                popup_674db331d31d19c649faf41277555340.setContent(html_51230244054360eb94b1dc460deb1b32);
+            
+        
+
+        circle_marker_8ba558e1a0cdb57b518ff1bbe868deee.bindPopup(popup_674db331d31d19c649faf41277555340)
+        ;
+
+        
+    
+    
+            var circle_marker_95cea5b281fa0cafb2fcab5fee5f3ec2 = L.circleMarker(
+                [45.926088, -68.574071],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_320c4ac030a9c08d21afc6b94dfa6daa);
+        
+    
+        var popup_5f879ea1a50f724467ed99ca575207f0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_16c2de6b53d29e486aad08ef52b606ee = $(`<div id="html_16c2de6b53d29e486aad08ef52b606ee" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> South Bridge 23<br>     <b>ID#:</b> 7474<br>     <b>Priority:</b> C<br>     <b>Lat:</b> 45.926088<br>     <b>Long:</b> -68.574071     </div>`)[0];
+                popup_5f879ea1a50f724467ed99ca575207f0.setContent(html_16c2de6b53d29e486aad08ef52b606ee);
+            
+        
+
+        circle_marker_95cea5b281fa0cafb2fcab5fee5f3ec2.bindPopup(popup_5f879ea1a50f724467ed99ca575207f0)
+        ;
+
+        
+    
+    
+            var circle_marker_c5da53ae26475fa8f3a2a76cc21a1990 = L.circleMarker(
+                [46.108598, -68.806534],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_320c4ac030a9c08d21afc6b94dfa6daa);
+        
+    
+        var popup_fbac3a71caf40e07ed7abd5a4c79ff37 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3070043187202bb0dbfd7217c5701edf = $(`<div id="html_3070043187202bb0dbfd7217c5701edf" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> North Bridge 1<br>     <b>ID#:</b> 7217<br>     <b>Priority:</b> C<br>     <b>Lat:</b> 46.108598<br>     <b>Long:</b> -68.806534     </div>`)[0];
+                popup_fbac3a71caf40e07ed7abd5a4c79ff37.setContent(html_3070043187202bb0dbfd7217c5701edf);
+            
+        
+
+        circle_marker_c5da53ae26475fa8f3a2a76cc21a1990.bindPopup(popup_fbac3a71caf40e07ed7abd5a4c79ff37)
+        ;
+
+        
+    
+    
+            var circle_marker_9c92a3e380b187f5287c8e0f21347cab = L.circleMarker(
+                [46.104273, -68.806413],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_320c4ac030a9c08d21afc6b94dfa6daa);
+        
+    
+        var popup_dc5037722e51088210f98cee91dff510 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d8d8f6898d5d0357948bb94dc902a230 = $(`<div id="html_d8d8f6898d5d0357948bb94dc902a230" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> North Bridge 3<br>     <b>ID#:</b> 7219<br>     <b>Priority:</b> C<br>     <b>Lat:</b> 46.104273<br>     <b>Long:</b> -68.806413     </div>`)[0];
+                popup_dc5037722e51088210f98cee91dff510.setContent(html_d8d8f6898d5d0357948bb94dc902a230);
+            
+        
+
+        circle_marker_9c92a3e380b187f5287c8e0f21347cab.bindPopup(popup_dc5037722e51088210f98cee91dff510)
+        ;
+
+        
+    
+    
+            var circle_marker_341fb9898bd6cf6ea4740642b863df9c = L.circleMarker(
+                [46.014363, -68.57132],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_320c4ac030a9c08d21afc6b94dfa6daa);
+        
+    
+        var popup_13a958c60160caeff052bf87a3d61c5c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5771ebb69a29f6605b84a24ed94cd473 = $(`<div id="html_5771ebb69a29f6605b84a24ed94cd473" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> Seboeis Bridge 2<br>     <b>ID#:</b> 7482<br>     <b>Priority:</b> C<br>     <b>Lat:</b> 46.014363<br>     <b>Long:</b> -68.57132     </div>`)[0];
+                popup_13a958c60160caeff052bf87a3d61c5c.setContent(html_5771ebb69a29f6605b84a24ed94cd473);
+            
+        
+
+        circle_marker_341fb9898bd6cf6ea4740642b863df9c.bindPopup(popup_13a958c60160caeff052bf87a3d61c5c)
+        ;
+
+        
+    
+    
+            var circle_marker_1c4701610be2dccfca6c00471bc97e70 = L.circleMarker(
+                [46.077601, -68.615413],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_320c4ac030a9c08d21afc6b94dfa6daa);
+        
+    
+        var popup_64b2f5089e8016857dbb9f46fa9d2fbe = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_17d86d6e410826b6111892163064885e = $(`<div id="html_17d86d6e410826b6111892163064885e" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> Seboeis Bridge 4<br>     <b>ID#:</b> 7593<br>     <b>Priority:</b> C<br>     <b>Lat:</b> 46.077601<br>     <b>Long:</b> -68.615413     </div>`)[0];
+                popup_64b2f5089e8016857dbb9f46fa9d2fbe.setContent(html_17d86d6e410826b6111892163064885e);
+            
+        
+
+        circle_marker_1c4701610be2dccfca6c00471bc97e70.bindPopup(popup_64b2f5089e8016857dbb9f46fa9d2fbe)
+        ;
+
+        
+    
+    
+            var circle_marker_1034f46d9ba25f13045b10970aaab231 = L.circleMarker(
+                [46.049612, -68.570178],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_320c4ac030a9c08d21afc6b94dfa6daa);
+        
+    
+        var popup_4a50a6666b921243c78eaa327911e531 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2b088479376274a360211d89822c9b5e = $(`<div id="html_2b088479376274a360211d89822c9b5e" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> Seboeis Bridge 5<br>     <b>ID#:</b> 7488<br>     <b>Priority:</b> C<br>     <b>Lat:</b> 46.049612<br>     <b>Long:</b> -68.570178     </div>`)[0];
+                popup_4a50a6666b921243c78eaa327911e531.setContent(html_2b088479376274a360211d89822c9b5e);
+            
+        
+
+        circle_marker_1034f46d9ba25f13045b10970aaab231.bindPopup(popup_4a50a6666b921243c78eaa327911e531)
+        ;
+
+        
+    
+    
+            var circle_marker_ae9bd957b4dbae69dc3f39aee9e6ba85 = L.circleMarker(
+                [46.016963, -68.593605],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_320c4ac030a9c08d21afc6b94dfa6daa);
+        
+    
+        var popup_ce6b36e0f6d002e46d1c0878fb85adcf = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_cb0e4e923556804e6216e54d01b4a462 = $(`<div id="html_cb0e4e923556804e6216e54d01b4a462" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> Seboeis Bridge 7<br>     <b>ID#:</b> 7451<br>     <b>Priority:</b> C<br>     <b>Lat:</b> 46.016963<br>     <b>Long:</b> -68.593605     </div>`)[0];
+                popup_ce6b36e0f6d002e46d1c0878fb85adcf.setContent(html_cb0e4e923556804e6216e54d01b4a462);
+            
+        
+
+        circle_marker_ae9bd957b4dbae69dc3f39aee9e6ba85.bindPopup(popup_ce6b36e0f6d002e46d1c0878fb85adcf)
+        ;
+
+        
+    
+    
+            feature_group_320c4ac030a9c08d21afc6b94dfa6daa.addTo(map_c75591b1674f6ddd6035e37a607f2d12);
+        
+    
+            var feature_group_ea21a3506b5011f3509483729cddbe86 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_bd5d5c72badf6d07bdd2e5ce8090d61a = L.circleMarker(
+                [45.92725, -68.60982],
+                {"bubblingMouseEvents": true, "color": "lightgreen", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "lightgreen", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_ea21a3506b5011f3509483729cddbe86);
+        
+    
+        var popup_b84d2ef9b4d8c0ccb0e9e7126ff2a48c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_12aebe67429452f24aad8ee67d597223 = $(`<div id="html_12aebe67429452f24aad8ee67d597223" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> South Bridge 17<br>     <b>ID#:</b> 7421<br>     <b>Priority:</b> D<br>     <b>Lat:</b> 45.92725<br>     <b>Long:</b> -68.60982     </div>`)[0];
+                popup_b84d2ef9b4d8c0ccb0e9e7126ff2a48c.setContent(html_12aebe67429452f24aad8ee67d597223);
+            
+        
+
+        circle_marker_bd5d5c72badf6d07bdd2e5ce8090d61a.bindPopup(popup_b84d2ef9b4d8c0ccb0e9e7126ff2a48c)
+        ;
+
+        
+    
+    
+            feature_group_ea21a3506b5011f3509483729cddbe86.addTo(map_c75591b1674f6ddd6035e37a607f2d12);
+        
+    
+            var feature_group_b6fde4359f67982cb0ec1dd2fbc51fd0 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_f371f71b972b5d8b70423f212797aba7 = L.circleMarker(
+                [46.1048, -68.799846],
+                {"bubblingMouseEvents": true, "color": "darkgreen", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkgreen", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_b6fde4359f67982cb0ec1dd2fbc51fd0);
+        
+    
+        var popup_2d50a3a390858eeb7c027b6d8d470956 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_89eb8b64f943b8e0b8afbd3381716aa3 = $(`<div id="html_89eb8b64f943b8e0b8afbd3381716aa3" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> North Bridge 2<br>     <b>ID#:</b> 7221<br>     <b>Priority:</b> Replaced<br>     <b>Lat:</b> 46.1048<br>     <b>Long:</b> -68.799846     </div>`)[0];
+                popup_2d50a3a390858eeb7c027b6d8d470956.setContent(html_89eb8b64f943b8e0b8afbd3381716aa3);
+            
+        
+
+        circle_marker_f371f71b972b5d8b70423f212797aba7.bindPopup(popup_2d50a3a390858eeb7c027b6d8d470956)
+        ;
+
+        
+    
+    
+            var circle_marker_b7d0f9cfd3e597948f38ec1a14a493ab = L.circleMarker(
+                [46.09533, -68.80761],
+                {"bubblingMouseEvents": true, "color": "darkgreen", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkgreen", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_b6fde4359f67982cb0ec1dd2fbc51fd0);
+        
+    
+        var popup_0d5a94117bc1ca3f5ba7c2f49563583e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3aa540826e0d577a6b4fa02390af4229 = $(`<div id="html_3aa540826e0d577a6b4fa02390af4229" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> North Bridge 4<br>     <b>ID#:</b> 7209<br>     <b>Priority:</b> Replaced<br>     <b>Lat:</b> 46.09533<br>     <b>Long:</b> -68.80761     </div>`)[0];
+                popup_0d5a94117bc1ca3f5ba7c2f49563583e.setContent(html_3aa540826e0d577a6b4fa02390af4229);
+            
+        
+
+        circle_marker_b7d0f9cfd3e597948f38ec1a14a493ab.bindPopup(popup_0d5a94117bc1ca3f5ba7c2f49563583e)
+        ;
+
+        
+    
+    
+            var circle_marker_6eb0811b429cbe50c4c44b9941fde9c8 = L.circleMarker(
+                [46.080466, -68.793808],
+                {"bubblingMouseEvents": true, "color": "darkgreen", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkgreen", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_b6fde4359f67982cb0ec1dd2fbc51fd0);
+        
+    
+        var popup_4bcb8ed11128a870a4c178fe05c84ef4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f6a8b5fc1563587af15cd3bdef413e91 = $(`<div id="html_f6a8b5fc1563587af15cd3bdef413e91" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> North Bridge 5<br>     <b>ID#:</b> 7041<br>     <b>Priority:</b> Replaced<br>     <b>Lat:</b> 46.080466<br>     <b>Long:</b> -68.793808     </div>`)[0];
+                popup_4bcb8ed11128a870a4c178fe05c84ef4.setContent(html_f6a8b5fc1563587af15cd3bdef413e91);
+            
+        
+
+        circle_marker_6eb0811b429cbe50c4c44b9941fde9c8.bindPopup(popup_4bcb8ed11128a870a4c178fe05c84ef4)
+        ;
+
+        
+    
+    
+            var circle_marker_a7a8561ae44017654a2f019c97a6a5d3 = L.circleMarker(
+                [46.080753, -68.792879],
+                {"bubblingMouseEvents": true, "color": "darkgreen", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkgreen", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_b6fde4359f67982cb0ec1dd2fbc51fd0);
+        
+    
+        var popup_c200e7bffd2ccbe830a4ddd04ecd5f09 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a84e0da4ace1a7ba904278afd70b7315 = $(`<div id="html_a84e0da4ace1a7ba904278afd70b7315" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> North Bridge 6<br>     <b>ID#:</b> 7042<br>     <b>Priority:</b> Replaced<br>     <b>Lat:</b> 46.080753<br>     <b>Long:</b> -68.792879     </div>`)[0];
+                popup_c200e7bffd2ccbe830a4ddd04ecd5f09.setContent(html_a84e0da4ace1a7ba904278afd70b7315);
+            
+        
+
+        circle_marker_a7a8561ae44017654a2f019c97a6a5d3.bindPopup(popup_c200e7bffd2ccbe830a4ddd04ecd5f09)
+        ;
+
+        
+    
+    
+            var circle_marker_57b1737fb1ff989af4abba2c84c00674 = L.circleMarker(
+                [46.054241, -68.590781],
+                {"bubblingMouseEvents": true, "color": "darkgreen", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "darkgreen", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_b6fde4359f67982cb0ec1dd2fbc51fd0);
+        
+    
+        var popup_77d66034b8121556f469dc6817f1730e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_bc4f829a7d34b3d7c9077de00fb661bb = $(`<div id="html_bc4f829a7d34b3d7c9077de00fb661bb" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> Seboeis Bridge 3<br>     <b>ID#:</b> 7447<br>     <b>Priority:</b> Replaced<br>     <b>Lat:</b> 46.054241<br>     <b>Long:</b> -68.590781     </div>`)[0];
+                popup_77d66034b8121556f469dc6817f1730e.setContent(html_bc4f829a7d34b3d7c9077de00fb661bb);
+            
+        
+
+        circle_marker_57b1737fb1ff989af4abba2c84c00674.bindPopup(popup_77d66034b8121556f469dc6817f1730e)
+        ;
+
+        
+    
+    
+            feature_group_b6fde4359f67982cb0ec1dd2fbc51fd0.addTo(map_c75591b1674f6ddd6035e37a607f2d12);
+        
+    
+            var feature_group_4ebc93f9243ed8617d669ad2357e348e = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_5bd71fff9fe858c05cb35ac70680b4d1 = L.circleMarker(
+                [46.033271, -68.780727],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.8, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(feature_group_4ebc93f9243ed8617d669ad2357e348e);
+        
+    
+        var popup_ce7febd887e624ba335aa54e204f4943 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_82745f98bb1777362bea970f50c88ccd = $(`<div id="html_82745f98bb1777362bea970f50c88ccd" style="width: 100.0%; height: 100.0%;">     <b>Bridge:</b> North Bridge 10<br>     <b>ID#:</b> 7239<br>     <b>Priority:</b> Removed<br>     <b>Lat:</b> 46.033271<br>     <b>Long:</b> -68.780727     </div>`)[0];
+                popup_ce7febd887e624ba335aa54e204f4943.setContent(html_82745f98bb1777362bea970f50c88ccd);
+            
+        
+
+        circle_marker_5bd71fff9fe858c05cb35ac70680b4d1.bindPopup(popup_ce7febd887e624ba335aa54e204f4943)
+        ;
+
+        
+    
+    
+            feature_group_4ebc93f9243ed8617d669ad2357e348e.addTo(map_c75591b1674f6ddd6035e37a607f2d12);
+        
+    
+            var layer_control_644170b9a023b61948b271e74f10e5d7_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_4c510e8106da2a5c13845ddf2a64a6e3,
+                },
+                overlays :  {
+                    "Highest RIsk" : feature_group_f5aaf287932f282c85520ae81466de62,
+                    "High Risk" : feature_group_f91c94fb14fd8101cb18ca075160c650,
+                    "Medium Risk" : feature_group_320c4ac030a9c08d21afc6b94dfa6daa,
+                    "Low Risk" : feature_group_ea21a3506b5011f3509483729cddbe86,
+                    "Replaced" : feature_group_b6fde4359f67982cb0ec1dd2fbc51fd0,
+                    "Removed" : feature_group_4ebc93f9243ed8617d669ad2357e348e,
+                },
+            };
+            let layer_control_644170b9a023b61948b271e74f10e5d7 = L.control.layers(
+                layer_control_644170b9a023b61948b271e74f10e5d7_layers.base_layers,
+                layer_control_644170b9a023b61948b271e74f10e5d7_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": false,
+  "autoZIndex": true,
+}
+            ).addTo(map_c75591b1674f6ddd6035e37a607f2d12);
+
+        
+    
+            var layer_control_fb8291004356d2f97ff893e541618763_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_4c510e8106da2a5c13845ddf2a64a6e3,
+                },
+                overlays :  {
+                    "Highest RIsk" : feature_group_f5aaf287932f282c85520ae81466de62,
+                    "High Risk" : feature_group_f91c94fb14fd8101cb18ca075160c650,
+                    "Medium Risk" : feature_group_320c4ac030a9c08d21afc6b94dfa6daa,
+                    "Low Risk" : feature_group_ea21a3506b5011f3509483729cddbe86,
+                    "Replaced" : feature_group_b6fde4359f67982cb0ec1dd2fbc51fd0,
+                    "Removed" : feature_group_4ebc93f9243ed8617d669ad2357e348e,
+                },
+            };
+            let layer_control_fb8291004356d2f97ff893e541618763 = L.control.layers(
+                layer_control_fb8291004356d2f97ff893e541618763_layers.base_layers,
+                layer_control_fb8291004356d2f97ff893e541618763_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": true,
+  "autoZIndex": true,
+}
+            ).addTo(map_c75591b1674f6ddd6035e37a607f2d12);
+
+        
+    
+            tile_layer_4c510e8106da2a5c13845ddf2a64a6e3.addTo(map_c75591b1674f6ddd6035e37a607f2d12);
+        
+    
+            feature_group_f5aaf287932f282c85520ae81466de62.addTo(map_c75591b1674f6ddd6035e37a607f2d12);
+        
+    
+            feature_group_f91c94fb14fd8101cb18ca075160c650.addTo(map_c75591b1674f6ddd6035e37a607f2d12);
+        
+    
+            feature_group_320c4ac030a9c08d21afc6b94dfa6daa.addTo(map_c75591b1674f6ddd6035e37a607f2d12);
+        
+    
+            feature_group_ea21a3506b5011f3509483729cddbe86.addTo(map_c75591b1674f6ddd6035e37a607f2d12);
+        
+    
+            feature_group_b6fde4359f67982cb0ec1dd2fbc51fd0.addTo(map_c75591b1674f6ddd6035e37a607f2d12);
+        
+    
+            feature_group_4ebc93f9243ed8617d669ad2357e348e.addTo(map_c75591b1674f6ddd6035e37a607f2d12);
+        
+</script>
+</html>
